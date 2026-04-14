@@ -1,143 +1,138 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mateus Ferreira</title>
+  <title>Mateus Ferreira | Desenvolvedor Full Stack</title>
+  <meta name="description" content="Portfólio de Mateus Ferreira, desenvolvedor Full Stack especializado em .NET, React e automações.">
 
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
-      color: white;
+      background: #0f172a;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+
+    header {
       text-align: center;
+      padding: 60px 20px;
     }
 
-    .container {
-      padding: 100px 20px;
-      animation: fadeIn 1.2s ease;
-    }
-
-    h1 {
-      font-size: 50px;
+    header h1 {
+      font-size: 2.5rem;
       margin-bottom: 10px;
     }
 
-    .subtitle {
-      font-size: 20px;
-      color: #00ff88;
-      margin-bottom: 30px;
-    }
-
-    p {
-      color: #bbb;
-      max-width: 600px;
-      margin: auto;
-      line-height: 1.6;
+    header p {
+      font-size: 1.2rem;
+      color: #94a3b8;
     }
 
     .btn {
       display: inline-block;
-      margin-top: 30px;
-      padding: 15px 35px;
-      background: linear-gradient(45deg, #00ff88, #00cc66);
-      color: black;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #38bdf8;
+      color: #0f172a;
       text-decoration: none;
-      border-radius: 30px;
+      border-radius: 8px;
       font-weight: bold;
-      transition: 0.3s;
-      box-shadow: 0 0 20px rgba(0,255,136,0.4);
     }
 
-    .btn:hover {
-      transform: scale(1.08);
+    section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
     }
 
-    .section {
-      margin-top: 120px;
-      padding: 0 20px;
-      animation: fadeUp 1s ease;
+    h2 {
+      margin-bottom: 20px;
+      color: #38bdf8;
     }
 
-    .cards {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 25px;
-      margin-top: 40px;
+    .projects {
+      display: grid;
+      gap: 20px;
     }
 
     .card {
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(10px);
-      padding: 25px;
-      border-radius: 15px;
-      width: 260px;
-      transition: 0.3s;
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      border-color: #00ff88;
-    }
-
-    .footer {
-      margin-top: 120px;
+      background: #1e293b;
       padding: 20px;
-      font-size: 14px;
-      color: #777;
+      border-radius: 10px;
     }
 
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
+    .card h3 {
+      margin-bottom: 10px;
     }
 
-    @keyframes fadeUp {
-      from {opacity: 0; transform: translateY(30px);}
-      to {opacity: 1; transform: translateY(0);}
+    .card p {
+      margin-bottom: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #94a3b8;
     }
   </style>
 </head>
-
 <body>
 
-<div class="container">
-  <h1>Mateus Ferreira</h1>
-  <div class="subtitle">Automação de Vendas | Mercado Livre</div>
-  <p>Transformo processos manuais em sistemas automáticos que aumentam lucro e economizam tempo.</p>
+  <header>
+    <h1>Mateus Ferreira</h1>
+    <p>Desenvolvedor Full Stack | .NET, React e Automação</p>
+    <a href="https://github.com/MateusFerreira-Dev" class="btn">Meu GitHub</a>
+  </header>
 
-  <!-- TROCA SEU NÚMERO -->
-  <a class="btn" href="https://wa.me/5583999999999" target="_blank">
-    Falar comigo no WhatsApp
-  </a>
-</div>
+  <section>
+    <h2>👨‍💻 Sobre mim</h2>
+    <p>
+      Desenvolvedor focado em criar sistemas eficientes, automações e soluções inteligentes.
+      Experiência com .NET, React e integração de APIs.
+    </p>
+  </section>
 
-<div class="section">
-  <h2>O que eu faço</h2>
+  <section>
+    <h2>🚀 Projetos</h2>
+    <div class="projects">
 
-  <div class="cards">
-    <div class="card">🚀 Automação de Planilhas</div>
-    <div class="card">📊 Dashboard Profissional</div>
-    <div class="card">💰 Controle de Lucro</div>
-  </div>
-</div>
+      <div class="card">
+        <h3>Automação de Compras</h3>
+        <p>Automação de processos com Python e Excel.</p>
+        <p><strong>Tecnologias:</strong> Python, Pandas</p>
+        <a href="#" class="btn">Ver projeto</a>
+      </div>
 
-<div class="section">
-  <h2>Sobre mim</h2>
-  <p>Ajudo vendedores a organizar seus negócios e escalar resultados usando tecnologia simples e eficiente.</p>
-</div>
+      <div class="card">
+        <h3>API em .NET</h3>
+        <p>API REST para gerenciamento de dados.</p>
+        <p><strong>Tecnologias:</strong> .NET, C#</p>
+        <a href="#" class="btn">Ver projeto</a>
+      </div>
 
-<div class="section">
-  <h2>Projetos</h2>
-  <p>Em breve vou adicionar resultados reais e cases.</p>
-</div>
+      <div class="card">
+        <h3>Sistema Web</h3>
+        <p>Aplicação web com interface moderna.</p>
+        <p><strong>Tecnologias:</strong> React, JavaScript</p>
+        <a href="#" class="btn">Ver projeto</a>
+      </div>
 
-<div class="footer">
-  © 2026 Mateus Ferreira
-</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>📫 Contato</h2>
+    <p>GitHub: https://github.com/MateusFerreira-Dev</p>
+    <p>LinkedIn: https://www.linkedin.com/in/mateus-ferreira-141376215?utm_source=share_via&utm_content=profile&utm_medium=member_ios</p>
+  </section>
+
+  <footer>
+    <p>© 2026 Mateus Ferreira</p>
+  </footer>
 
 </body>
 </html>
