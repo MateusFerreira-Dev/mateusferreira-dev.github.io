@@ -1,0 +1,60 @@
+# Automação de Relatório de Compras
+
+Projeto de automação para tratamento de planilhas reais de compras.
+
+---
+
+## 🚀 Funcionalidades
+- Limpeza de dados
+- Cálculo de totais
+- Agrupamento por fornecedor
+- Geração de gráficos
+- Exportação de relatório final em Excel
+
+---
+
+## 🛠️ Tecnologias
+- Python
+- Pandas
+- Matplotlib
+
+---
+
+## ▶️ Como executar
+
+```bash
+pip install pandas openpyxl matplotlib
+python main.py
+```
+
+---
+
+## 📊 Exemplo de saída
+
+O sistema gera:
+- Relatório consolidado em Excel (`relatorio_final.xlsx`)
+- Gráfico de total por fornecedor
+
+---
+
+## 📁 Estrutura do projeto
+
+```
+automacao-relatorio-python/
+ ├── main.py
+ ├── compras.xlsx
+ └── relatorio_final.xlsx
+```
+
+---
+
+## 💡 Sobre o projeto
+
+Este projeto simula um cenário real de análise de dados de compras, realizando limpeza, tratamento e geração de insights a partir de planilhas Excel.
+
+---
+
+## 📫 Contato
+
+- GitHub: https://github.com/MateusFerreira-Dev
+- LinkedIn: https://www.linkedin.com/in/mateus-ferreira-141376215
