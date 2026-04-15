@@ -1,19 +1,25 @@
 /* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
   background: #0f172a;
   color: #e2e8f0;
+  animation: fadeIn 0.8s ease-in;
 }
 
 /* HEADER */
 header {
   text-align: center;
-  padding: 60px 20px;
+  padding: 80px 20px;
 }
 
 header h1 {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   margin-bottom: 10px;
 }
 
@@ -47,26 +53,34 @@ h2 {
   padding: 20px;
   border-radius: 12px;
   border: 1px solid #334155;
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
   border-color: #38bdf8;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 /* TECNOLOGIAS */
 .tech {
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
 .tech span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   background: #0f172a;
   padding: 5px 10px;
-  margin-right: 5px;
+  margin-right: 6px;
   border-radius: 6px;
   font-size: 12px;
   border: 1px solid #334155;
+}
+
+.tech i {
+  font-size: 14px;
 }
 
 /* LINKS */
@@ -78,6 +92,11 @@ h2 {
   text-decoration: none;
   color: #38bdf8;
   font-weight: bold;
+  transition: 0.2s;
+}
+
+.links a:hover {
+  opacity: 0.7;
 }
 
 /* CONTATO */
@@ -88,6 +107,11 @@ section a {
   color: #38bdf8;
   text-decoration: none;
   font-weight: bold;
+  transition: 0.2s;
+}
+
+section a:hover {
+  opacity: 0.7;
 }
 
 /* FOOTER */
@@ -95,17 +119,14 @@ footer {
   text-align: center;
   padding: 20px;
   color: #94a3b8;
+  font-size: 0.9rem;
 }
 
 /* ANIMAÇÃO */
-body {
-  animation: fadeIn 0.8s ease-in;
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(15px);
   }
   to {
     opacity: 1;
