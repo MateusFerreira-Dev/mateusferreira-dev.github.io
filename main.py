@@ -1,67 +1,165 @@
-import pandas as pd
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-# Ler Excel
-df = pd.read_excel("compras.xlsx", skiprows=3)
+/* BODY + FUNDO MODERNO */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #020617, #0f172a, #1e293b);
+  color: #e2e8f0;
+  min-height: 100vh;
+  animation: fadeIn 0.8s ease-in;
+  position: relative;
+}
 
-# Limpeza
-df = df.dropna(how="all", axis=1)
-df = df.dropna(how="all")
+/* EFEITO DE LUZ NO FUNDO */
+body::before {
+  content: "";
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(56,189,248,0.15), transparent);
+  top: -100px;
+  left: -100px;
+  z-index: -1;
+}
 
-df.columns = df.iloc[0]
-df = df[1:]
+body::after {
+  content: "";
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(99,102,241,0.15), transparent);
+  bottom: -100px;
+  right: -100px;
+  z-index: -1;
+}
 
-# Resetar índice
-df = df.reset_index(drop=True)
+/* HEADER */
+header {
+  text-align: center;
+  padding: 100px 20px;
+}
 
-print("DADOS TRATADOS:")
-print(df.head())
+header h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
 
-# -------------------------
-# 💰 TOTAL
-# -------------------------
-col_valor = None
+header p {
+  color: #94a3b8;
+  font-size: 1.2rem;
+}
 
-for col in df.columns:
-    if "valor" in str(col).lower():
-        col_valor = col
+/* SECTIONS */
+section {
+  max-width: 1000px;
+  margin: auto;
+  padding: 40px 20px;
+}
 
-if col_valor:
-    df[col_valor] = pd.to_numeric(df[col_valor], errors='coerce')
-    total = df[col_valor].sum()
+/* GLASS CARD BASE */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
 
-    print("\n💰 Total geral:", total)
+/* TITULOS */
+h2 {
+  color: #38bdf8;
+  margin-bottom: 20px;
+}
 
-# -------------------------
-# 📊 AGRUPAR (se tiver fornecedor)
-# -------------------------
-col_fornecedor = None
+/* GRID */
+.projetos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
 
-for col in df.columns:
-    if "fornecedor" in str(col).lower():
-        col_fornecedor = col
+/* CARD */
+.card {
+  padding: 20px;
+  transition: 0.3s;
+}
 
-if col_fornecedor and col_valor:
-    resumo = df.groupby(col_fornecedor)[col_valor].sum().sort_values(ascending=False)
+.card:hover {
+  transform: translateY(-8px) scale(1.01);
+  border: 1px solid rgba(56,189,248,0.4);
+}
 
-    print("\n📊 Total por fornecedor:")
-    print(resumo)
+/* TECNOLOGIAS */
+.tech {
+  margin-top: 12px;
+}
 
-# -------------------------
-# 📁 EXPORTAR NOVO EXCEL
-# -------------------------
-with pd.ExcelWriter("relatorio_final.xlsx") as writer:
-    df.to_excel(writer, sheet_name="Dados Limpos", index=False)
+.tech span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(15, 23, 42, 0.6);
+  padding: 5px 10px;
+  margin-right: 6px;
+  border-radius: 6px;
+  font-size: 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
 
-    if col_fornecedor and col_valor:
-        resumo.to_excel(writer, sheet_name="Resumo por Fornecedor")
+.tech i {
+  font-size: 14px;
+}
 
-print("\n✅ Relatório exportado como: relatorio_final.xlsx")
+/* LINKS */
+.links {
+  margin-top: 15px;
+}
 
-# -------------------------
-# 📈 GRÁFICO
-# -------------------------
-if col_fornecedor and col_valor:
-    resumo.plot(kind="bar", title="Total por Fornecedor")
-    
-    import matplotlib.pyplot as plt
-    plt.show()
+.links a {
+  text-decoration: none;
+  color: #38bdf8;
+  font-weight: bold;
+}
+
+/* CONTATO */
+section a {
+  display: inline-block;
+  margin-right: 15px;
+  margin-top: 10px;
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* HOVER GLOBAL */
+a {
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: #7dd3fc;
+  transform: translateY(-2px);
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #94a3b8;
+}
+
+/* ANIMAÇÃO */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
