@@ -5,109 +5,127 @@
   box-sizing: border-box;
 }
 
-/* BODY + FUNDO TECH */
+/* FUNDO TECH MELHORADO */
 body {
   font-family: Arial, sans-serif;
-  background: radial-gradient(circle at top, #1e293b, #020617);
   color: #e2e8f0;
-  animation: fadeIn 0.8s ease-in;
-  position: relative;
-}
 
-/* GRID TECH NO FUNDO */
-body::before {
-  content: "";
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background-image: 
-    linear-gradient(rgba(56, 189, 248, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
+  background-color: #020617;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
   background-size: 40px 40px;
-  z-index: -1;
+
+  animation: fadeIn 0.8s ease-in;
 }
 
 /* HEADER */
 header {
   text-align: center;
-  padding: 80px 20px;
-  animation: slideDown 0.8s ease;
+  padding: 100px 20px;
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(10px);
 }
 
 header h1 {
   font-size: 2.8rem;
-  margin-bottom: 10px;
 }
 
 header p {
-  color: #94a3b8;
-  font-size: 1.2rem;
+  color: #a78bfa;
 }
 
-/* SECTIONS */
+/* LOGOS INFINITO PREMIUM */
+.logos-section {
+  padding: 60px 0;
+}
+
+.logos-mask {
+  overflow: hidden;
+
+  -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+}
+
+.logos-track {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  width: max-content;
+  animation: scroll 30s linear infinite;
+}
+
+.logos-mask:hover .logos-track {
+  animation-play-state: paused;
+}
+
+.logos-track img {
+  width: 40px;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+.logos-track img:hover {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+/* SEÇÕES */
 section {
   max-width: 900px;
   margin: auto;
-  padding: 40px 20px;
+  padding: 60px 20px;
 }
 
 h2 {
-  color: #38bdf8;
-  margin-bottom: 20px;
+  color: #8b5cf6;
+  margin-bottom: 15px;
 }
 
-/* GRID PROJETOS */
+/* CARDS */
 .projetos {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
 
-/* CARD */
 .card {
-  background: #1e293b;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(139,92,246,0.2);
   padding: 20px;
-  border-radius: 12px;
-  border: 1px solid #334155;
-  transition: all 0.3s ease;
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  transition: 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-6px);
-  border-color: #38bdf8;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(139,92,246,0.25);
 }
 
-/* TECNOLOGIAS */
-.tech {
-  margin-top: 12px;
-}
-
+/* TECH */
 .tech span {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: #0f172a;
-  padding: 5px 10px;
-  margin-right: 6px;
+  background: rgba(0,0,0,0.4);
+  padding: 6px 10px;
+  margin-right: 5px;
   border-radius: 6px;
   font-size: 12px;
-  border: 1px solid #334155;
 }
 
-.tech i {
-  font-size: 14px;
-}
-
-/* LINKS */
-.links {
-  margin-top: 15px;
-}
-
+/* BOTÃO */
 .links a {
+  display: inline-block;
+  margin-top: 10px;
+  background: linear-gradient(135deg, #7c3aed, #8b5cf6);
+  padding: 8px 14px;
+  border-radius: 8px;
+  color: white;
   text-decoration: none;
-  color: #38bdf8;
-  font-weight: bold;
+  transition: 0.3s;
+}
+
+.links a:hover {
+  transform: translateY(-2px);
 }
 
 /* CONTATO */
@@ -115,19 +133,12 @@ section a {
   display: inline-block;
   margin-right: 15px;
   margin-top: 10px;
-  color: #38bdf8;
+  color: #8b5cf6;
   text-decoration: none;
-  font-weight: bold;
 }
 
-/* HOVER GLOBAL */
-a {
-  transition: all 0.2s ease;
-}
-
-a:hover {
-  color: #7dd3fc;
-  transform: translateY(-2px);
+section a:hover {
+  text-decoration: underline;
 }
 
 /* FOOTER */
@@ -135,28 +146,15 @@ footer {
   text-align: center;
   padding: 20px;
   color: #94a3b8;
-  font-size: 0.9rem;
 }
 
 /* ANIMAÇÕES */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
