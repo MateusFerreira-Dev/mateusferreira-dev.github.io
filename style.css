@@ -49,10 +49,13 @@ header p {
 
 .logos-track {
   display: flex;
-  gap: 60px;
   align-items: center;
-  width: max-content;
-  animation: scroll 30s linear infinite;
+  gap: 60px;
+  width: fit-content;
+
+  animation: scroll 25s linear infinite;
+
+  will-change: transform;
 }
 
 .logos-mask:hover .logos-track {
@@ -63,6 +66,8 @@ header p {
   width: 40px;
   opacity: 0.6;
   transition: 0.3s;
+
+  backface-visibility: hidden;
 }
 
 .logos-track img:hover {
@@ -141,8 +146,8 @@ section a:hover {
   text-decoration: underline;
 }
 
-/* WHATSAPP DESTACADO */
-section a[href*="wa.me"] {
+/* WHATSAPP */
+section a[href*=\"wa.me\"] {
   background: #25D366;
   color: white;
   padding: 8px 12px;
@@ -156,12 +161,17 @@ footer {
   color: #94a3b8;
 }
 
-/* ANIMAÇÕES */
+/* LOOP PERFEITO */
 @keyframes scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 30px));
+  }
 }
 
+/* ANIMAÇÃO */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
