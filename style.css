@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 
-/* FUNDO TECH */
+/* BODY */
 body {
   font-family: Arial, sans-serif;
   color: #e2e8f0;
@@ -15,8 +15,6 @@ body {
     linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
   background-size: 40px 40px;
-
-  animation: fadeIn 0.8s ease-in;
 }
 
 /* HEADER */
@@ -28,21 +26,33 @@ header {
 }
 
 header h1 {
-  font-size: 2.8rem;
+  font-size: 3rem;
+  margin-bottom: 10px;
 }
 
 header p {
   color: #a78bfa;
 }
 
-/* LOGOS */
+/* SECTIONS */
+section {
+  padding: 80px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* LOGOS (LOOP INFINITO) */
 .logos-section {
   padding: 60px 0;
 }
 
 .logos-mask {
   overflow: hidden;
-
   -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
   mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
 }
@@ -50,115 +60,82 @@ header p {
 .logos-track {
   display: flex;
   align-items: center;
-  gap: 60px;
+  gap: 80px;
   width: fit-content;
 
   animation: scroll 25s linear infinite;
-
-  will-change: transform;
 }
 
 .logos-mask:hover .logos-track {
   animation-play-state: paused;
 }
 
-.logos-track img {
-  width: 40px;
-  opacity: 0.6;
-  transition: 0.3s;
+/* CARDS DAS TECNOLOGIAS */
+.tech-card {
+  width: 110px;
+  height: 110px;
 
-  backface-visibility: hidden;
-}
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-.logos-track img:hover {
-  opacity: 1;
-  transform: scale(1.15);
-}
+  border-radius: 18px;
+  position: relative;
 
-/* SEÇÕES */
-section {
-  max-width: 900px;
-  margin: auto;
-  padding: 60px 20px;
-}
-
-h2 {
-  color: #8b5cf6;
-  margin-bottom: 15px;
-}
-
-/* PROJETOS */
-.projetos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.card {
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(139,92,246,0.2);
-  padding: 20px;
+
+  backdrop-filter: blur(10px);
+
+  transition: 0.4s;
+  overflow: hidden;
+}
+
+.tech-card img {
+  width: 50px;
+  z-index: 2;
+  transition: 0.3s;
+}
+
+/* GLOW ANIMADO */
+.tech-card::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+
+  background: conic-gradient(
+    transparent,
+    #7c3aed,
+    transparent,
+    #3b82f6,
+    transparent
+  );
+
+  animation: rotateGlow 4s linear infinite;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.tech-card::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: #020617;
   border-radius: 16px;
-  backdrop-filter: blur(12px);
-  transition: 0.3s;
+  z-index: 1;
 }
 
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 40px rgba(139,92,246,0.25);
+.tech-card:hover {
+  transform: translateY(-8px) scale(1.08);
 }
 
-/* TECH */
-.tech span {
-  background: rgba(0,0,0,0.4);
-  padding: 6px 10px;
-  margin-right: 5px;
-  border-radius: 6px;
-  font-size: 12px;
+.tech-card:hover::before {
+  opacity: 1;
 }
 
-/* BOTÕES */
-.links a {
-  display: inline-block;
-  margin-top: 10px;
-  background: linear-gradient(135deg, #7c3aed, #8b5cf6);
-  padding: 8px 14px;
-  border-radius: 8px;
-  color: white;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.links a:hover {
-  transform: translateY(-2px);
-}
-
-/* CONTATO */
-section a {
-  display: inline-block;
-  margin-right: 15px;
-  margin-top: 10px;
-  color: #8b5cf6;
-  text-decoration: none;
-}
-
-section a:hover {
-  text-decoration: underline;
-}
-
-/* WHATSAPP */
-section a[href*=\"wa.me\"] {
-  background: #25D366;
-  color: white;
-  padding: 8px 12px;
-  border-radius: 8px;
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 20px;
-  color: #94a3b8;
+.tech-card:hover img {
+  transform: scale(1.2);
 }
 
 /* LOOP PERFEITO */
@@ -167,12 +144,72 @@ footer {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-50% - 30px));
+    transform: translateX(calc(-50% - 40px));
   }
 }
 
-/* ANIMAÇÃO */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+/* ROTAÇÃO DO GLOW */
+@keyframes rotateGlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* PROJETOS */
+.projetos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: rgba(255,255,255,0.03);
+  padding: 20px;
+  border-radius: 16px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.tech span {
+  display: inline-block;
+  margin-right: 10px;
+  color: #a78bfa;
+}
+
+/* LINKS */
+.links a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+/* CONTATO */
+section a {
+  display: inline-block;
+  margin-right: 15px;
+  margin-top: 10px;
+  color: #e2e8f0;
+  text-decoration: none;
+}
+
+section a:hover {
+  color: #a78bfa;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 40px;
+  color: #64748b;
 }
