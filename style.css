@@ -4,28 +4,42 @@
   box-sizing: border-box;
 }
 
-/* FUNDO */
+/* FUNDO TECH MELHORADO */
 body {
   font-family: Arial;
   color: #e2e8f0;
 
-  background-color: #020617;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-  background-size: 40px 40px;
+  background: radial-gradient(circle at 20% 20%, #0f172a, #020617);
 }
 
-/* HEADER */
-header {
+/* HERO */
+.hero {
   text-align: center;
-  padding: 100px 20px;
-  background: rgba(255,255,255,0.03);
-  backdrop-filter: blur(10px);
+  padding: 120px 20px;
 }
 
-header p {
+.hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
   color: #a78bfa;
+  margin-bottom: 25px;
+}
+
+/* CTA */
+.cta-btn {
+  background: linear-gradient(135deg, #7c3aed, #8b5cf6);
+  padding: 12px 20px;
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.cta-btn:hover {
+  transform: scale(1.05);
 }
 
 /* LOGOS */
@@ -37,100 +51,85 @@ header p {
 .logos-track {
   display: flex;
   gap: 60px;
-  animation: scroll 30s linear infinite;
+  animation: scroll 25s linear infinite;
 }
 
 .logos-track img {
   width: 40px;
   opacity: 0.6;
-  transition: 0.3s;
-}
-
-.logos-track img:hover {
-  transform: scale(1.2);
-  opacity: 1;
 }
 
 .logos-mask:hover .logos-track {
   animation-play-state: paused;
 }
 
-/* SEÇÕES */
-section {
-  max-width: 900px;
-  margin: auto;
-  padding: 60px 20px;
-}
-
-h2 {
-  color: #8b5cf6;
-}
-
 /* PROJETOS */
 .projetos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  display: flex;
   gap: 20px;
+  padding: 40px;
+  overflow-x: auto;
 }
 
 .card {
-  background: rgba(255,255,255,0.04);
+  min-width: 300px;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: 0.4s;
+  position: relative;
+}
+
+/* IMAGEM */
+.thumb {
+  width: 100%;
+  display: block;
+}
+
+/* CONTEÚDO ESCONDIDO */
+.card-content {
+  position: absolute;
+  bottom: 0;
   padding: 20px;
-  border-radius: 16px;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+  transform: translateY(100%);
   transition: 0.4s;
 }
 
-/* NETFLIX EFFECT */
-.projetos:hover .card {
-  opacity: 0.5;
-}
-
+/* HOVER NETFLIX REAL */
 .card:hover {
-  transform: scale(1.08);
-  opacity: 1;
+  transform: scale(1.1);
   z-index: 10;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
 }
 
-/* BOTÕES */
-.links a {
-  display: inline-block;
-  margin-top: 10px;
-  background: #8b5cf6;
-  padding: 8px 12px;
-  border-radius: 8px;
-  color: white;
-  text-decoration: none;
+.card:hover .card-content {
+  transform: translateY(0);
 }
 
 /* CONTATO */
+section {
+  padding: 40px;
+}
+
 section a {
   margin-right: 15px;
   color: #8b5cf6;
-  text-decoration: none;
 }
 
-/* WHATS FIXO */
+/* WHATS */
 .whatsapp-float {
   position: fixed;
   bottom: 25px;
   right: 25px;
+  background: #25D366;
   width: 60px;
   height: 60px;
-  background: #25D366;
-  color: white;
   border-radius: 50%;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   font-size: 28px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-  z-index: 999;
-  transition: 0.3s;
-}
-
-.whatsapp-float:hover {
-  transform: scale(1.15);
+  color: white;
 }
 
 /* ANIMAÇÃO */
