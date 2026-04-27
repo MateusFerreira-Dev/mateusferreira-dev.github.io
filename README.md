@@ -46,7 +46,7 @@ Confira meus projetos diretamente no meu portfólio:
 
 ## 📫 Contato
 - GitHub: https://github.com/MateusFerreira-Dev
-- LinkedIn: (coloca aqui depois)
+- LinkedIn: https://www.linkedin.com/in/mateus-ferreira-141376215
 
 ---
 
