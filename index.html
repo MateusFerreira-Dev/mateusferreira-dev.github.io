@@ -16,12 +16,59 @@
   </head>
 
   <body>
+    <!-- 🔥 FUNDO PARTICULAS -->
+    <canvas id="particles"></canvas>
+
+    <!-- HEADER MELHORADO -->
     <header>
-      <h1>Mateus Ferreira</h1>
-      <p>Desenvolvedor Full Stack | .NET, React e Automação com Python</p>
+      <div class="hero">
+        <div class="hero-text">
+          <h1>Mateus Ferreira</h1>
+          <p>Desenvolvedor Full Stack | .NET, React e Automação com Python</p>
+
+          <a href="#projetos" class="btn">Ver Projetos</a>
+        </div>
+
+        <div class="mascot">
+          <svg width="160" height="160" viewBox="0 0 200 200">
+            <!-- Corpo -->
+            <circle
+              cx="100"
+              cy="100"
+              r="80"
+              fill="url(#grad)"
+              stroke="#3b82f6"
+              stroke-width="2"
+            />
+
+            <!-- Glow -->
+            <circle
+              cx="100"
+              cy="100"
+              r="80"
+              fill="none"
+              stroke="#8b5cf6"
+              stroke-width="2"
+              opacity="0.3"
+              class="pulse-ring"
+            />
+
+            <!-- Olho -->
+            <circle id="eye" cx="100" cy="100" r="20" fill="#38bdf8" />
+
+            <!-- Definição gradiente -->
+            <defs>
+              <radialGradient id="grad">
+                <stop offset="0%" stop-color="#1e293b" />
+                <stop offset="100%" stop-color="#020617" />
+              </radialGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
     </header>
 
-    <!-- LOGOS INFINITO -->
+    <!-- LOGOS INFINITO (SEU ORIGINAL) -->
     <section class="logos-section">
       <div class="logos-mask">
         <div class="logos-track">
@@ -136,7 +183,7 @@
     </section>
 
     <!-- PROJETOS -->
-    <section>
+    <section id="projetos">
       <h2>🚀 Projetos</h2>
 
       <div class="projetos">
@@ -187,5 +234,8 @@
     <footer>
       <p>© 2026 Mateus Ferreira</p>
     </footer>
+
+    <!-- 🔥 JS -->
+    <script src="script.js"></script>
   </body>
 </html>
