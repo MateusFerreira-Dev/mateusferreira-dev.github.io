@@ -16,59 +16,46 @@
   </head>
 
   <body>
-    <!-- 🔥 FUNDO PARTICULAS -->
     <canvas id="particles"></canvas>
 
-    <!-- HEADER MELHORADO -->
     <header>
       <div class="hero">
         <div class="hero-text">
           <h1>Mateus Ferreira</h1>
           <p>Desenvolvedor Full Stack | .NET, React e Automação com Python</p>
-
           <a href="#projetos" class="btn">Ver Projetos</a>
         </div>
 
+        <!-- 🤖 NOVO MASCOTE PRO -->
         <div class="mascot">
-          <svg width="160" height="160" viewBox="0 0 200 200">
-            <!-- Corpo -->
-            <circle
-              cx="100"
-              cy="100"
-              r="80"
-              fill="url(#grad)"
-              stroke="#3b82f6"
-              stroke-width="2"
-            />
+          <svg viewBox="0 0 200 200" width="170" style="overflow: visible">
+            <circle cx="100" cy="100" r="90" class="glow" />
 
-            <!-- Glow -->
-            <circle
-              cx="100"
-              cy="100"
-              r="80"
-              fill="none"
-              stroke="#8b5cf6"
-              stroke-width="2"
-              opacity="0.3"
-              class="pulse-ring"
-            />
+            <rect x="40" y="30" width="120" height="90" rx="25" class="head" />
+            <rect x="55" y="45" width="90" height="60" rx="12" class="screen" />
 
-            <!-- Olho -->
-            <circle id="eye" cx="100" cy="100" r="20" fill="#38bdf8" />
+            <g class="eyes">
+              <circle class="eye" cx="80" cy="75" r="6" />
+              <circle class="eye" cx="120" cy="75" r="6" />
+            </g>
 
-            <!-- Definição gradiente -->
-            <defs>
-              <radialGradient id="grad">
-                <stop offset="0%" stop-color="#1e293b" />
-                <stop offset="100%" stop-color="#020617" />
-              </radialGradient>
-            </defs>
+            <path class="mouth" d="M80 95 Q100 105 120 95" />
+
+            <rect x="70" y="120" width="60" height="40" rx="12" class="body" />
+
+            <g class="arm left-arm">
+              <rect x="40" y="125" width="30" height="8" rx="4" />
+            </g>
+
+            <g class="arm right-arm">
+              <rect x="130" y="125" width="30" height="8" rx="4" />
+            </g>
           </svg>
         </div>
       </div>
     </header>
 
-    <!-- LOGOS INFINITO (SEU ORIGINAL) -->
+    <!-- LOGOS -->
     <section class="logos-section">
       <div class="logos-mask">
         <div class="logos-track">
@@ -78,43 +65,36 @@
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
             />
           </div>
-
           <div class="tech-card">
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
             />
           </div>
-
           <div class="tech-card">
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
             />
           </div>
-
           <div class="tech-card">
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
             />
           </div>
-
           <div class="tech-card">
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"
             />
           </div>
-
           <div class="tech-card">
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
             />
           </div>
-
           <div class="tech-card">
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
             />
           </div>
-
           <div class="tech-card">
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg"
@@ -127,43 +107,36 @@
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
             />
           </div>
-
           <div class="tech-card">
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
             />
           </div>
-
           <div class="tech-card">
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
             />
           </div>
-
           <div class="tech-card">
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
             />
           </div>
-
           <div class="tech-card">
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"
             />
           </div>
-
           <div class="tech-card">
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
             />
           </div>
-
           <div class="tech-card">
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
             />
           </div>
-
           <div class="tech-card">
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg"
@@ -180,6 +153,20 @@
         Desenvolvedor focado em criar sistemas eficientes, automações e soluções
         práticas. Experiência com .NET, React e integração de APIs.
       </p>
+    </section>
+
+    <!-- 🔥 NOVO: SKILLS -->
+    <section>
+      <h2>🧠 Skills</h2>
+      <div class="skills">
+        <span>.NET</span>
+        <span>React</span>
+        <span>JavaScript</span>
+        <span>Python</span>
+        <span>APIs REST</span>
+        <span>SQL</span>
+        <span>Automação</span>
+      </div>
     </section>
 
     <!-- PROJETOS -->
@@ -204,6 +191,23 @@
               href="https://github.com/MateusFerreira-Dev/automacao-relatorio-python"
               target="_blank"
             >
+              <i class="fab fa-github"></i> Código
+            </a>
+          </div>
+        </div>
+
+        <!-- 🔥 NOVO PROJETO -->
+        <div class="card">
+          <h3>Sistema Web de Gestão</h3>
+          <p>Aplicação completa com autenticação, CRUD e integração com API.</p>
+
+          <div class="tech">
+            <span><i class="fab fa-react"></i> React</span>
+            <span><i class="fas fa-database"></i> SQL</span>
+          </div>
+
+          <div class="links">
+            <a href="#" target="_blank">
               <i class="fab fa-github"></i> Código
             </a>
           </div>
@@ -235,7 +239,7 @@
       <p>© 2026 Mateus Ferreira</p>
     </footer>
 
-    <!-- 🔥 JS -->
+    <!-- JS -->
     <script src="script.js"></script>
   </body>
 </html>
