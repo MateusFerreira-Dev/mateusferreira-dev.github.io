@@ -1,0 +1,548 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== BODY ===== */
+body {
+  font-family: Arial, sans-serif;
+  color: #e2e8f0;
+
+  background-color: #020617;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+
+  transition: transform 0.15s ease-out;
+}
+
+/* ===== HEADER ===== */
+header {
+  text-align: center;
+  padding: 100px 20px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  position: relative;
+}
+
+/* leve glow no topo */
+header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 200px;
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.25),
+    transparent 70%
+  );
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+header h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+header p {
+  color: #a78bfa;
+}
+
+/* ===== SECTIONS ===== */
+section {
+  padding: 80px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* ===== LOGOS ===== */
+.logos-section {
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding: 100px 0;
+}
+
+.logos-mask {
+  overflow: hidden;
+  padding: 30px 0;
+
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
+}
+
+.logos-track {
+  display: flex;
+  align-items: center;
+  gap: 120px;
+  width: fit-content;
+  animation: scroll 25s linear infinite;
+}
+
+.logos-mask:hover .logos-track {
+  animation-play-state: paused;
+}
+
+/* ===== TECH CARD ===== */
+.tech-card {
+  width: 110px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  backdrop-filter: blur(10px);
+  transition: 0.35s;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.tech-card img {
+  width: 55px;
+  z-index: 2;
+  position: relative;
+  transition: 0.3s;
+}
+
+/* glow animado */
+.tech-card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+
+  background: conic-gradient(
+    from 0deg,
+    transparent,
+    #7c3aed,
+    transparent,
+    #3b82f6,
+    transparent
+  );
+
+  animation: rotateGlow 4s linear infinite;
+  opacity: 0;
+  transition: 0.4s;
+  z-index: 0;
+}
+
+.tech-card::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: #020617;
+  border-radius: 16px;
+  z-index: 1;
+}
+
+.tech-card:hover {
+  transform: translateY(-6px) scale(1.04);
+}
+
+.tech-card:hover::before {
+  opacity: 1;
+}
+
+.tech-card:hover img {
+  transform: scale(1.12);
+}
+
+/* ===== ANIMAÇÕES ===== */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 60px));
+  }
+}
+
+@keyframes rotateGlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== PROJETOS ===== */
+.projetos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 20px;
+  border-radius: 16px;
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+/* efeito glow no hover */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top,
+    rgba(139, 92, 246, 0.15),
+    transparent
+  );
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.tech span {
+  display: inline-block;
+  margin-right: 10px;
+  color: #a78bfa;
+}
+
+/* ===== LINKS ===== */
+.links a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+/* ===== CONTATO ===== */
+section a {
+  display: inline-block;
+  margin-right: 15px;
+  margin-top: 10px;
+  color: #e2e8f0;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+section a:hover {
+  color: #a78bfa;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 40px;
+  color: #64748b;
+}
+
+/* ===== HERO ===== */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: auto;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  max-width: 500px;
+}
+
+/* ===== BOTÃO ===== */
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.7);
+}
+
+/* ===== MASCOTE ===== */
+.mascot {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #1e293b, #020617);
+  box-shadow: 0 0 40px rgba(56, 189, 248, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: float 4s ease-in-out infinite;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.mascot:hover {
+  transform: scale(1.12) translateY(-10px);
+  box-shadow: 0 0 80px rgba(139, 92, 246, 0.9);
+}
+
+/* SVG */
+.mascot svg {
+  filter: drop-shadow(0 0 20px rgba(56, 189, 248, 0.4));
+  transition: 0.3s;
+}
+
+.mascot:hover svg {
+  filter: drop-shadow(0 0 50px rgba(139, 92, 246, 1));
+}
+
+/* ring */
+.pulse-ring {
+  animation: pulseRing 2s infinite;
+}
+
+@keyframes pulseRing {
+  0% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.07);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+}
+
+/* float */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+/* ===== PARTICLES ===== */
+#particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* ===== FIX OLHO SVG ===== */
+.eye {
+  transform-origin: center;
+  transform-box: fill-box;
+  transition: transform 0.08s ease;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+/* ===== MASCOTE PRO ===== */
+
+.head,
+.body {
+  fill: #0f172a;
+  stroke: #38bdf8;
+  stroke-width: 2;
+}
+
+.screen {
+  fill: #020617;
+}
+
+.eye {
+  fill: #38bdf8;
+  transform-origin: center;
+}
+
+.mouth {
+  stroke: #38bdf8;
+  stroke-width: 3;
+  fill: none;
+  transition: all 0.3s ease;
+}
+
+.arm rect {
+  fill: #0f172a;
+  stroke: #38bdf8;
+  stroke-width: 2;
+  transform-origin: center;
+}
+
+.glow {
+  fill: none;
+  stroke: #38bdf8;
+  stroke-width: 2;
+  opacity: 0.15;
+  filter: blur(10px);
+  animation: pulseGlow 3s infinite;
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.15;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.35;
+  }
+}
+
+/* braços */
+.mascot:hover .left-arm rect {
+  animation: waveLeft 0.6s ease;
+}
+
+.mascot:hover .right-arm rect {
+  animation: waveRight 0.6s ease;
+}
+
+@keyframes waveLeft {
+  50% {
+    transform: rotate(-25deg);
+  }
+}
+
+@keyframes waveRight {
+  50% {
+    transform: rotate(25deg);
+  }
+}
+
+/* boca animada */
+.mascot:hover .mouth {
+  transform: translateY(4px) scaleY(1.3);
+}
+
+/* piscar */
+@keyframes blink {
+  0%,
+  95%,
+  100% {
+    transform: scaleY(1);
+  }
+  97% {
+    transform: scaleY(0.1);
+  }
+}
+
+.eye {
+  animation: blink 4s infinite;
+}
+/* ===== SKILLS ===== */
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skills span {
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.skills span:hover {
+  transform: scale(1.05);
+  background: rgba(139, 92, 246, 0.25);
+}
+
+/* ===== ANIMAÇÃO SUAVE ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ===== EFEITO NOS CARDS DE PROJETO ===== */
+
+/* Estiliza a imagem dentro do card */
+.card img {
+  width: 100%;
+  max-height: 250px; /* Evita que o card fique muito comprido */
+  object-fit: cover; /* Ajusta a imagem sem distorcer */
+  border-radius: 10px;
+  margin-bottom: 15px;
+  border: 1px solid rgba(56, 189, 248, 0.2); /* Bordinha sutil azul */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Suaviza a animação */
+}
+
+/* Efeito ao passar o mouse no card */
+.card:hover img {
+  transform: scale(1.03); /* Aumenta levemente a imagem */
+  box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2); /* Cria um brilho azulado */
+  border-color: #38bdf8; /* Realça a borda */
+}
+
+/* Ajuste nos links dos cards para ficarem alinhados */
+.card .links {
+  margin-top: auto;
+  padding-top: 15px;
+  display: flex;
+  gap: 15px;
+}
